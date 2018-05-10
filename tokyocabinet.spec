@@ -4,7 +4,7 @@
 #
 Name     : tokyocabinet
 Version  : 1.4.48
-Release  : 3
+Release  : 4
 URL      : http://fallabs.com/tokyocabinet/tokyocabinet-1.4.48.tar.gz
 Source0  : http://fallabs.com/tokyocabinet/tokyocabinet-1.4.48.tar.gz
 Summary  : a modern implementation of DBM
