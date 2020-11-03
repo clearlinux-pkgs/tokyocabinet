@@ -4,7 +4,7 @@
 #
 Name     : tokyocabinet
 Version  : 1.4.48
-Release  : 7
+Release  : 8
 URL      : http://fallabs.com/tokyocabinet/tokyocabinet-1.4.48.tar.gz
 Source0  : http://fallabs.com/tokyocabinet/tokyocabinet-1.4.48.tar.gz
 Summary  : a modern implementation of DBM
@@ -94,29 +94,30 @@ man components for the tokyocabinet package.
 
 %prep
 %setup -q -n tokyocabinet-1.4.48
+cd %{_builddir}/tokyocabinet-1.4.48
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1568083297
+export SOURCE_DATE_EPOCH=1604442925
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %configure --disable-static
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1568083297
+export SOURCE_DATE_EPOCH=1604442925
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/tokyocabinet
-cp COPYING %{buildroot}/usr/share/package-licenses/tokyocabinet/COPYING
+cp %{_builddir}/tokyocabinet-1.4.48/COPYING %{buildroot}/usr/share/package-licenses/tokyocabinet/e60c2e780886f95df9c9ee36992b8edabec00bcc
 %make_install
 
 %files
@@ -195,7 +196,7 @@ cp COPYING %{buildroot}/usr/share/package-licenses/tokyocabinet/COPYING
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/tokyocabinet/COPYING
+/usr/share/package-licenses/tokyocabinet/e60c2e780886f95df9c9ee36992b8edabec00bcc
 
 %files man
 %defattr(0644,root,root,0755)
